@@ -6,12 +6,12 @@ API_KEY = "mi_api_key_segura_001"  # Cambiar a la API key real
 TERMINAL_ID = "TERMINAL_001"
 
 # Configuración de la pantalla
-SCREEN_WIDTH = 320
-SCREEN_HEIGHT = 240
+SCREEN_WIDTH = 400
+SCREEN_HEIGHT = 800
 
 # Configuración de la cámara
-CAMERA_WIDTH = 320
-CAMERA_HEIGHT = 240
+CAMERA_WIDTH = 640
+CAMERA_HEIGHT = 480
 
 # Configuración del lector de huellas
 FINGERPRINT_PORT = "/dev/ttyS0"

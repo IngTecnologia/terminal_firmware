@@ -50,16 +50,16 @@ class MainScreen:
         self.button_hover_color = (140, 200, 240)
         self.text_color = (10, 10, 10)
         
-        # Fuentes
-        self.title_font = pygame.font.SysFont("Arial", 24, bold=True)
-        self.button_font = pygame.font.SysFont("Arial", 20)
+        # Fuentes - Escaladas para pantalla más grande
+        self.title_font = pygame.font.SysFont("Arial", 36, bold=True)
+        self.button_font = pygame.font.SysFont("Arial", 28)
         
-        # Crear botones
-        button_width = 200
-        button_height = 50
-        button_margin = 20
+        # Crear botones - Ajustados para pantalla vertical 400x800
+        button_width = 300
+        button_height = 80
+        button_margin = 40
         
-        # Calcular posiciones
+        # Calcular posiciones centradas verticalmente
         start_y = (SCREEN_HEIGHT - (3 * button_height + 2 * button_margin)) // 2
         
         self.entrada_button = Button(
@@ -117,9 +117,9 @@ class MainScreen:
         # Limpiar pantalla
         self.screen.fill(self.bg_color)
         
-        # Dibujar título
+        # Dibujar título - Posición ajustada para pantalla vertical
         title_surface = self.title_font.render("Terminal Biométrica", True, self.text_color)
-        title_rect = title_surface.get_rect(center=(SCREEN_WIDTH // 2, 40))
+        title_rect = title_surface.get_rect(center=(SCREEN_WIDTH // 2, 80))
         self.screen.blit(title_surface, title_rect)
         
         # Dibujar botones

@@ -43,17 +43,12 @@ class TerminalApp:
             
             # Configurar pantalla
             from config import SCREEN_WIDTH, SCREEN_HEIGHT
-            self.original_width = SCREEN_WIDTH   # 320
-            self.original_height = SCREEN_HEIGHT  # 480
             
-            # Importante: Para rotación horaria de 90°, intercambiamos las dimensiones
+            # Pantalla naturalmente vertical 400x800
             self.screen = pygame.display.set_mode(
-                (320, 480),  # Invertimos ancho/alto para la rotación
-                pygame.FULLSCREEN  # Usar modo pantalla completa
+                (SCREEN_WIDTH, SCREEN_HEIGHT),
+                pygame.FULLSCREEN
             )
-
-            # Superficie para dibujar con las dimensiones originales (sin rotar)
-            # self.drawing_surface = pygame.Surface((self.original_width, self.original_height))
 
             pygame.display.set_caption("Terminal Biométrica")
         
@@ -72,7 +67,6 @@ class TerminalApp:
             
             # Pantalla actual
             self.current_screen = None
-            self.screen_rotated = True
             
         except Exception as e:
             print(f"Error al inicializar la aplicación: {e}")
@@ -93,19 +87,10 @@ class TerminalApp:
                     elif self.current_screen:
                         self.current_screen.handle_event(event)
 
-                # Limpiar la superficie de dibujo
-                # self.drawing_surface.fill((240, 240, 240))  # Color de fondo
-
                 # Actualizar y dibujar la pantalla actual
                 if self.current_screen:
                     self.current_screen.update()
                     self.current_screen.draw()
-
-                if self.screen_rotated:
-                    # Rotar la pantalla completa después de dibujar
-                    rotated_screen = pygame.transform.rotate(self.screen, 270)
-                    # self.screen.fill((0, 0, 0))  # Limpiar pantalla con negro
-                    self.screen.blit(rotated_screen, (70, -75))
             
                 # Actualizar pantalla
                 pygame.display.flip()
